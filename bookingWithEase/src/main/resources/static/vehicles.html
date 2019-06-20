@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript" src="lib/jQuery/jquery.min.js"></script>
+<script type="text/javascript" src="lib/toastr/toastr.min.js"></script>
+<script type="text/javascript" src="lib/alertify/alertify.min.js"></script>
+<link type="text/css" rel="stylesheet"
+	href="lib/alertify/css/alertify.min.css">
+<link type="text/css" rel="stylesheet"
+	href="lib/alertify/css/themes/semantic.min.css">
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/util.js"></script>
+<script type="text/javascript" src="js/auth.js"></script>
+<script type="text/javascript" src="js/vehicles.js"></script>
+
+<link rel="stylesheet" href="css/index.css" />
+<link rel="stylesheet" href="css/navbar.css" />
+<link rel="stylesheet" href="css/companies.css" />
+
+<title>Vehicles</title>
+</head>
+
+<body>
+	<nav>
+		<div class="brand">
+			<h2>Booking With Ease</h2>
+		</div>
+		<ul id="nav_ul">
+			<li><a href="javascript:homepage()">Home</li>
+			</a>
+		</ul>
+	</nav>
+
+	<h1>Vehicles</h1>
+
+	<div class="search-div">
+		<h2 align="center">Search</h2>
+		<form id="formsrcvehs">
+			<input name="rentacarId" id="racIdHidden" type="hidden">
+			<table align="center">
+				<tr>
+					<td>Type:</td>
+					<td><input name="type" id="searchType" type="text"></td>
+				</tr>
+				<tr>
+					<td>Gear:</td>
+					<td>
+						<select name="gear">
+							<option> </option>
+							<option>Automatic</option>
+							<option>Manual</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Minimum price:</td>
+					<td><input name="minPrice" id="searchMinPrice" type="text"></td>
+				</tr>
+				<tr>
+					<td>Maximum price:</td>
+					<td><input name="maxPrice" id="searchMaxPrice" type="text"></td>
+				</tr>
+				<tr>
+					<td>Pick up:</td>
+					<td><input name="pickUp" id="vehpickup" type="date"></td>
+				</tr>
+				<tr>
+					<td>Drop off:</td>
+					<td><input name="dropOff" id="vehdropoff" type="date"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="Search"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+		
+	<button class="black_btn" id="info_veh_btn">Info</button>
+	<button class="black_btn" id="all_vehs_btn">All Vehicles</button>
+	<button class="black_btn" id="qvr_btn">All Quick Reservations</button>
+
+
+	<div class="companies-div" id="vehsDiv"></div>
+	
+	
+	<div class="form-popup" id="myVehResForm">
+		<form class="form-container" id="form_container">
+			<h1 style="font-size:30px">Choose special offers</h1>
+			<div id="check_container"></div>
+			<p id="r_price" class="totalPrice"></p>
+			<button type="button" class="popup_btn confirm" id="so_rac_confirm_btn">Choose</button>
+			<button type="button" class="popup_btn close" onclick="closeForm()">Cancel</button>
+			
+		</form>
+	</div>
+</body>
+
+</html>

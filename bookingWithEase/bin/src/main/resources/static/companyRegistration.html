@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<link rel="stylesheet" href="css/index.css" />
+		
+		<script type="text/javascript" src="lib/jQuery/jquery.min.js"></script>
+		<script type="text/javascript" src="lib/toastr/toastr.min.js"></script>	
+		
+		<script type="text/javascript" src="js/util.js"></script>
+		<script type="text/javascript" src="js/companyRegistration.js"></script>
+		
+		
+
+		<title>BookingWithEase</title>
+	</head>
+
+	<body>
+		<h1>Company registration</h1>
+	</body>
+	
+	<div class="transbox">
+	<form id="companyRegForm">
+		<table align="center">
+			<tr>
+				<td align="left">Type: </td>
+				<td align="left" ><input type="radio" name="cmpType" value="airline" id="radioAirline"> Airline </td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td align="left"><input type="radio" name="cmpType" value="hotel" id="radioHotel"> Hotel</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td align="left"><input type="radio" name="cmpType" value="rentacar" id="radioRentacar"> Rent-a-car</td>
+			</tr>
+			<tr>
+				<td align="left"> Name: </td>
+				<td> <input type="text" name="name"required/> </td>
+			</tr>
+			
+			<tr> 
+				<td align="left"> Address: </td>
+				<td> <input type="text" name="address" required/> </td>
+			</tr>
+			<tr>
+				<td>Description: &nbsp; </td>
+				<td align="left"><textarea cols="22" rows="5" name="description" required></textarea></td>
+			</tr>	
+			<tr><td>&nbsp;</td></tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td align="right"> <input class="formBtn" type="submit" id="registerCompany" value="Register">
+				 <input class="formBtn" type="button" id="cancelCompReg" name="cancelCompReg" value="Cancel"></td>
+			</tr>	
+			
+		
+		</table>
+	
+	</form>
+	</div>
+
+</html>

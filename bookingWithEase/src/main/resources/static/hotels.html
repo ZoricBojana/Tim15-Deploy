@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript" src="lib/jQuery/jquery.min.js"></script>
+<script type="text/javascript" src="lib/toastr/toastr.min.js"></script>
+<script type="text/javascript" src="lib/alertify/alertify.min.js"></script>
+<script src="https://api-maps.yandex.ru/2.1/?lang=en_US"
+	type="text/javascript"></script>
+
+<script type="text/javascript" src="js/auth.js"></script>
+<script type="text/javascript" src="js/util.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/maps.js"></script>
+<script type="text/javascript" src="js/hotels.js"></script>
+<link type="text/css" rel="stylesheet"
+	href="lib/alertify/css/alertify.min.css">
+<link type="text/css" rel="stylesheet"
+	href="lib/alertify/css/themes/semantic.min.css">
+
+<link rel="stylesheet" href="css/index.css" />
+<link rel="stylesheet" href="css/navbar.css" />
+<link rel="stylesheet" href="css/companies.css" />
+<link type="text/css" rel="stylesheet"
+	href="lib/alertify/css/alertify.min.css">
+<link type="text/css" rel="stylesheet"
+	href="lib/alertify/css/themes/semantic.min.css">
+
+
+<title>Hotels</title>
+
+</head>
+
+<body>
+
+	<div class="divOpacity">
+		<nav>
+			<div class="brand">
+				<h2>Booking With Ease</h2>
+			</div>
+			<ul id="nav_ul">
+				<li><a href="javascript:homepage()">Home</a></li>
+
+			</ul>
+		</nav>
+
+		<h1 id="h1_">HOTELS</h1>
+	</div>
+	
+	<div id="map"
+		style="width: 600px; height: 400px; display: none; position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%);">
+	</div>
+
+	<div class="divOpacity">
+		<div class="search-div" style="bottom: 24%">
+			<h2 align="center">Search</h2>
+
+			<form id="form-hotels-search">
+				<table align="center">
+					<tr>
+						<td>Name:</td>
+						<td><input type="text" name="name" id="src-hotel-name"></td>
+					</tr>
+					<tr>
+						<td>Address:</td>
+						<td><input type="text" name="address" id="src-hotel-addr"></td>
+					</tr>
+					<tr>
+						<td>Stars:</td>
+						<td><input type="text" name="stars" id="src-hotel-stars"></td>
+					</tr>
+					<tr>
+						<td>Rating:</td>
+						<td><input type="text" name="rating" id="src-hotel-rating"></td>
+					</tr>
+					<tr>
+						<td>Check in:</td>
+						<td><input type="date" name="checkIn" id="src-hotel-checkIn"
+							required></td>
+					</tr>
+					<tr>
+						<td>Check out:</td>
+						<td><input type="date" name="checkOut"
+							id="src-hotel-checkOut" required></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td align="center"><input type="submit" value="Search"
+							id="search_hotel_btn"></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+
+		<div class="companies-div" id="hotels-div"></div>
+	</div>
+</body>
+
+</html>

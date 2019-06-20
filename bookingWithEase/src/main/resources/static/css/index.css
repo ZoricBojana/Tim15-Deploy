@@ -1,0 +1,201 @@
+body {
+	background-image: url(../images/background6.jpeg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.left {
+	margin: 2px;
+	/*  border-right: solid 1px; */
+	float: left;
+	width: 25%;
+}
+
+.center {
+	margin-left: 25%;
+	width: 75%;
+}
+
+/************ Headings ***************/
+h1 {
+	color: white;
+	text-align: center;
+	font-size: 42px;
+	margin-top: 5%
+}
+
+h2 {
+	font-family: 'Open sans', sans-serif;
+	font-size: 19px;
+	color: white;
+	opacity: 1;
+}
+
+.main-heading {
+	font-family: 'Open sans', sans-serif;
+	font-weight: 540;
+	font-size: 30px;
+	text-align: center;
+	letter-spacing: 9px;
+	text-transform: uppercase;
+}
+
+.main-heading {
+	position: absolute;
+	top: 10%;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	/*  z-index: 2; */
+	padding: 0;
+	margin: auto;
+	color: #fff;
+}
+
+.main-heading2 {
+	font-family: 'Open sans', sans-serif;
+	font-weight: 440;
+	font-size: 20px;
+	text-align: center;
+	position: absolute;
+	top: 30%;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	/* z-index: 2; */
+	padding: 0;
+	margin: auto;
+	color: white;
+}
+
+.container>h1 {
+	font-weight: 300;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+/************ Transboxes *************/
+.main-box {
+	position: absolute;
+	top: 35%;
+	right: 20%;
+	bottom: 20%;
+	left: 20%;
+	background-color: black;
+	opacity: 0.7;
+}
+
+.transbox-login, .transbox-registration {
+	position: absolute;
+	top: 20%;
+	left: 35%;
+	right: 35%;
+	bottom: 25%;
+	background-color: black;
+	border: 1px solid black;
+	opacity: 0.9;
+	filter: alpha(opacity = 90); /* For IE8 and earlier */
+	text-align: center;
+	font-size: 18px;
+	color: white;
+	background-color: black;
+}
+
+div.transbox {
+	margin-left: 25%;
+	margin-right: 25%;
+	margin-top: 5%;
+	background-color: white;
+	border: 1px solid black;
+	opacity: 0.6;
+	filter: alpha(opacity = 40); /* For IE8 and earlier */
+	text-align: center;
+	font-size: 22px;
+}
+
+div.transboxUsers {
+	margin-left: 25%;
+	margin-right: 25%;
+	margin-top: 5%;
+	background-color: black;
+	color: white;
+	border: 1px solid black;
+	opacity: 0.9;
+	filter: alpha(opacity = 90); /* For IE8 and earlier */
+	text-align: center;
+	font-size: 22px;
+}
+
+.transbox2 {
+	margin-left: 15%;
+	margin-right: 15%;
+	margin-top: 5%;
+	background-color: white;
+	border: 1px solid black;
+	opacity: 0.6;
+	filter: alpha(opacity = 40); /* For IE8 and earlier */
+	text-align: center;
+	font-size: 22px;
+}
+
+.transbox3 {
+	margin-left: 1%;
+	margin-right: 1%;
+	margin-top: 1%;
+	background-color: white;
+	border: 1px solid black;
+	opacity: 0.6;
+	filter: alpha(opacity = 40); /* For IE8 and earlier */
+	text-align: center;
+	font-size: 22px;
+}
+
+/************* Table ***************/
+table {
+	align: center;
+}
+
+td {
+	align: "left";
+}
+
+.formBtn {
+	font-size: 20px;
+}
+
+/************* Buttons ******************/
+#btns-div {
+	position: absolute;
+	bottom: 9%;
+	left: 22%;
+}
+
+.button {
+	outline: none;
+	height: 45px;
+	text-align: center;
+	width: 140px;
+	border-radius: 40px;
+	background-color: black;
+	border: 2px solid;
+	color: white;
+	letter-spacing: 1px;
+	text-shadow: 0;
+	cursor: pointer;
+	transition: all 0.25 ease;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.button:hover {
+	background-color: white;
+	color: black;
+}
+
+/********************** MAPS ****************************/
+
+.mapDiv{
+	width: 50%;
+	height: 50%;
+}
+

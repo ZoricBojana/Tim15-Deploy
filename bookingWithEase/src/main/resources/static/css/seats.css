@@ -1,0 +1,102 @@
+button[class*="av_"] {
+	padding: 20px 20px;
+	font-size: 10px;
+}
+
+button[class*="type_ECONOMY"] {
+  background-color: rgb(255, 128, 128);
+}
+
+button[class*="type_BUSSINES"] {
+  background-color: rgb(128, 255, 128);
+}
+
+button[class*="type_FIRST"] {
+  background-color: rgb(255, 255, 128);
+}
+
+button[class*="_selected"] {
+  background-color: blue;
+}
+
+button[class*="av_false"] {
+  cursor: not-allowed;
+  display: inline-block;
+  background-color: rgb(128, 128, 128);
+}
+
+.inline-block {
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+}
+
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 17%;
+  padding: 0 2px;;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+
+.card1 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: rgb(128, 128, 128);
+}
+.card2 {
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: blue;
+}
+.card3 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: rgb(255, 255, 128);
+}
+.card4 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: rgb(128, 255, 128);
+}
+.card5 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: rgb(255, 128, 128);
+}

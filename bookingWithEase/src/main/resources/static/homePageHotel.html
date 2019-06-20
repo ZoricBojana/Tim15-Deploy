@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript" src="lib/jQuery/jquery.min.js"></script>
+<script type="text/javascript" src="lib/toastr/toastr.min.js"></script>
+<script type="text/javascript" src="lib/alertify/alertify.min.js"></script>
+
+<script type="text/javascript" src="js/auth.js"></script>
+<script type="text/javascript" src="js/util.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/rooms.js"></script>
+<script type="text/javascript" src="js/hotels.js"></script>
+<script type="text/javascript" src="js/showRooms.js"></script>
+<script type="text/javascript" src="js/users.js"></script>
+<script type="text/javascript" src="js/hotelAdmin.js"></script>
+
+<link rel="stylesheet" href="css/index.css" />
+<link rel="stylesheet" href="css/navbar.css" />
+<link rel="stylesheet" href="css/table.css" />
+<link rel="stylesheet" href="css/user.css" />
+<link rel="stylesheet" href="css/homepageHotelAdmin.css" />
+<link type="text/css" rel="stylesheet"
+	href="lib/alertify/css/alertify.min.css">
+<link type="text/css" rel="stylesheet"
+	href="lib/alertify/css/themes/semantic.min.css">
+
+<title>Booking With Ease</title>
+
+</head>
+<body onload="checkCompany()">
+
+	<nav>
+		<div class="brand">
+			<h2>Booking With Ease</h2>
+		</div>
+		<ul id="nav_ul">
+			<li><a href="javascript:homepage()">Home</a></li>
+
+			<li><a class="tablinks"
+				href="javascript:openCity(event, 'myprofilediv')">My Profile</a></li>
+		</ul>
+	</nav>
+
+	<div class="tab">
+		<button class="tablinks" onclick="openCity(event, 'hotelInfo')">Hotel
+			info</button>
+		<button class="tablinks" onclick="openCity(event, 'editHotelInfo')">Edit
+			hotel info</button>
+		<button class="tablinks" onclick="openCity(event, 'allRooms')">All
+			rooms</button>
+		<button class="tablinks" onclick="openCity(event, 'addRoom')">Add
+			room</button>
+		<button class="tablinks" id="special_offers_btn"
+			onclick="openCity(event, 'allSpecialOffers')">Special offers</button>
+		<button class="tablinks" onclick="openCity(event, 'addSpecialOffer')">Add
+			special offer</button>
+		<button class="tablinks" onclick="openCity(event, 'pricelist')">Price
+			list</button>
+		<button class="tablinks" id="allQrrBtn"
+			onclick="openCity(event, 'allQuickRoomReservations')">All
+			Quick Reservations</button>
+		<button class="tablinks" id="openQrrBtn"
+			onclick="openCity(event, 'addQuickRoomReservation')">Add
+			Quick Reservation</button>
+		<button class="tablinks" id="openReportsBtn"
+			onclick="openCity(event, 'myReports')">Reports</button>
+
+	</div>
+
+	<div id="hotelInfo" class="tabcontent">
+		<div class="container">
+			<h2 align=center style="color: black; font-size: 21px;">Hotel
+				info</h2>
+			<table id="hotel_info_table" align="center" style="font-size: 19px;">
+				<tr style="border-bottom: 1px solid black">
+					<td align="left">Name:</td>
+					<td><p id="hotel_name"></p></td>
+				</tr>
+
+				<tr style="border-bottom: 1px solid black">
+					<td align="left">Address:</td>
+					<td><p id="hotel_address"></p></td>
+				</tr>
+				<tr style="border-bottom: 1px solid black">
+					<td align="left">Latitude:</td>
+					<td><p id="hotel_latitude"></p></td>
+				</tr>
+				<tr style="border-bottom: 1px solid black">
+					<td align="left">Longitude:</td>
+					<td><p id="hotel_longitude"></p></td>
+				</tr>
+				<tr style="border-bottom: 1px solid black">
+					<td>Description: &nbsp;</td>
+					<td align="left"><p id="hotel_description">&nbsp;</p></td>
+				</tr>
+				<tr style="border-bottom: 1px solid black">
+					<td align="left">Stars:</td>
+					<td><p id="hotel_stars"></p></td>
+				</tr>
+				<tr>
+					<td align="left">Rating:</td>
+					<td><p id="hotel_rating"></p></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<div id="editHotelInfo" class="tabcontent">
+		<div class="container">
+			<h2 align=center style="color: black;">Edit hotel info</h2>
+			<form id="edit_hotel_form">
+				<table align="center">
+
+					<tr>
+						<td align="left">Name:</td>
+						<td><input type="text" name="name" id="edit_hotel_name"
+							required /></td>
+					</tr>
+
+					<tr>
+						<td align="left">Address:</td>
+						<td><input type="text" name="address" id="edit_hotel_address"
+							required /></td>
+					</tr>
+					<tr>
+						<td align="left">Latitude:</td>
+						<td><input type="number" step="any" name="latitude"
+							id="edit_hotel_latitude" /></td>
+					</tr>
+					<tr>
+						<td align="left">Longitude:</td>
+						<td><input type="number" step="any" name="longitude"
+							id="edit_hotel_longitude" /></td>
+					</tr>
+					<tr>
+						<td>Stars: &nbsp;</td>
+						<td><input type="text" name="stars" id="edit_hotel_stars"
+							required /></td>
+					</tr>
+					<tr>
+						<td>Description: &nbsp;</td>
+						<td align="left"><textarea cols="22" rows="5"
+								name="description" id="edit_hotel_description"></textarea></td>
+					</tr>
+
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td align="right"><input class="formBtn" type="submit"
+							id="registerCompany" value="Submit"> <input
+							class="formBtn" type="button" id="cancelCompReg"
+							name="cancelCompReg" value="Cancel"></td>
+					</tr>
+
+				</table>
+
+			</form>
+			<br>
+		</div>
+	</div>
+
+	<div id="allRooms" class="tabcontent">
+		<div class="container">
+			<h2 align=center style="color: black;">All rooms</h2>
+			<table align="center" class="hotelsTable" id="hotelsTable" border=1>
+
+			</table>
+		</div>
+	</div>
+
+	<div id="addRoom" class="tabcontent">
+		<div class="container">
+			<h2 id="add_room_h2" align=center style="color: black">Add room</h2>
+
+
+			<form id="addRoomForm">
+				<table align="center" id="add_room_table">
+					<tr>
+						<td align="left">Room number:</td>
+						<td><input type="number"  min="1" name="roomNumber" /></td>
+					</tr>
+
+					<tr>
+						<td align="left">Floor number:</td>
+						<td><input type="number" min="-1" name="floorNumber" required /></td>
+					</tr>
+					<tr>
+						<td align="left">Capacity:</td>
+						<td><input type="number" min="1" name="capacity" required /></td>
+					</tr>
+					<tr>
+						<td align="left">Price per night:</td>
+						<td><input type="number" min="1" step="any" name="pricePerNight" required /></td>
+					</tr>
+
+				</table>
+				<table align="center">
+					<tr>
+						<td></td>
+						<td align="right" style="font-size: 16px"><a
+							href="javascript:roomSpecialPrice();"><i>Add special
+									price</i></a>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td><input class="formBtn" type="submit" id="addNewRoom"
+							value="Add new"> <input class="formBtn" type="button"
+							id="cancelNewRoom" name="cancelNewRoom" value="Cancel"></td>
+					</tr>
+
+
+				</table>
+
+			</form>
+
+		</div>
+	</div>
+
+	<div id="editRoom" class="tabcontent">
+		<div class="container">
+			<h2 id="add_room_h2" align=center style="color: black">Edit room</h2>
+
+
+			<form id="editRoomForm">
+				<table align="center">
+					<tr>
+						<td align="left">Room number:</td>
+						<td><input id="room_number" type="number" min="1" name="roomNumber" /></td>
+					</tr>
+
+					<tr>
+						<td align="left">Floor number:</td>
+						<td><input id="floor_number" type="number" min="-1" name="floorNumber"
+							required /></td>
+					</tr>
+					<tr>
+						<td align="left">Capacity:</td>
+						<td><input id="room_capacity" type="number" min="1" name="capacity"
+							required /></td>
+					</tr>
+					<tr>
+						<td align="left">Price per night:</td>
+						<td><input id="price_per_night" type="number" step="any" min="1"
+							name="pricePerNight" required /></td>
+					</tr>
+
+				</table>
+
+				<table align="center">
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td align="right"><input class="formBtn" type="submit"
+							id="edit_room_btn" value="Save"> <input class="formBtn"
+							type="button" id="cancel_edit_room_btn" name="cancelNewRoom"
+							value="Cancel"></td>
+					</tr>
+				</table>
+
+			</form>
+
+		</div>
+	</div>
+
+	<div id="allSpecialOffers" class="tabcontent">
+		<div class="container">
+			<h2 align=center style="color: black;">All special offers</h2>
+			<table align="center" id="specialOffersTable" class="hotelsTable"
+				border=1>
+
+			</table>
+		</div>
+	</div>
+
+	<div id="addSpecialOffer" class="tabcontent">
+		<div class="container">
+			<h2 align=center style="color: black">Add special offer</h2>
+
+
+			<form id="addSpecialOfferForm">
+				<table align="center">
+					<tr>
+						<td align="left">Name:</td>
+						<td><input type="text" name="name" /></td>
+					</tr>
+
+					<tr>
+						<td align="left">Description:</td>
+						<td align="left"><textarea cols="22" rows="5"
+								name="description" id="special_offer_description"></textarea></td>
+					</tr>
+					<tr>
+						<td align="left">Additional payment:</td>
+						<td><input type="number" min="0" name="price" /></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td align="right"><input class="formBtn" type="button"
+							id="addSpecialOfferBtn" value="Add new"> <input
+							class="formBtn" type="button" id="cancelSpecialOfferBtn"
+							name="cancelSpecialOffer" value="Cancel"></td>
+					</tr>
+
+				</table>
+
+			</form>
+
+		</div>
+	</div>
+
+	<div id="editSpecialOffer" class="tabcontent">
+		<div class="container">
+			<h2 align=center style="color: black">Edit special offer</h2>
+
+			<form id="editSpecialOfferForm">
+				<table align="center">
+					<tr>
+						<td align="left">Name:</td>
+						<td><input type="text" id="so_name" name="name" /></td>
+					</tr>
+
+					<tr>
+						<td align="left">Description:</td>
+						<td align="left"><textarea cols="22" rows="5"
+								name="description" id="so_description"></textarea></td>
+					</tr>
+					<tr>
+						<td align="left">Additional payment:</td>
+						<td><input type="number" min="0" id="so_price" name="price" /></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td align="right"><input class="formBtn" type="submit"
+							id="edit_so_btn" value="Save"> <input class="formBtn"
+							type="button" id="cancel_so_btn" name="cancelEditSo"
+							value="Cancel"></td>
+					</tr>
+
+				</table>
+
+			</form>
+
+		</div>
+	</div>
+
+	<div id="pricelist" class="tabcontent">
+		<div class="container">
+			<h2 align=center style="color: black;">Pricelist</h2>
+			<form id="pricelist_form">
+				<input type="hidden" name="id" id="hstpId" />
+				<table align="center">
+
+					<tr>
+						<td><input type="checkbox" name="bedAndBreakfastEnabled"
+							id="bedAndBreakfastEnabled" value="true" />&nbsp;Bed and
+							breakfast</td>
+						<td><input type="text" name="bedAndBreakfastPrice"
+							id="bedAndBreakfastPrice" /></td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="halfBoardEnabled"
+							id="halfBoardEnabled" value="true" />&nbsp;Half board</td>
+						<td><input type="text" name="halfBoardPrice"
+							id="halfBoardPrice" /></td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="fullBoardEnabled"
+							id="fullBoardEnabled" value="true" />&nbsp;Full board</td>
+						<td><input type="text" name="fullBoardPrice"
+							id="fullBoardPrice" /></td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="allInclusiveEnabled"
+							id="allInclusiveEnabled" value="true" />&nbsp;All inclusive</td>
+						<td><input type="text" name="allInclusivePrice"
+							id="allInclusivePrice" /></td>
+					</tr>
+
+					<tr>
+						<td>&nbsp;</td>
+						<td align="right">
+							<button id="pricelist_btn" value="Save changes">Save
+								changes</button>
+						</td>
+					</tr>
+
+				</table>
+
+			</form>
+			<br>
+		</div>
+	</div>
+
+	<div id="allQuickRoomReservations" class="tabcontent">
+		<div class="container">
+			<h2 align=center style="color: black;">All Quick Room
+				Reservations</h2>
+			<table align="center" id="allQrrTable" class="hotelsTable" border=1>
+			</table>
+		</div>
+	</div>
+
+	<div id="addQuickRoomReservation" class="tabcontent">
+		<div class="container">
+			<h2 align=center style="color: black;">Add Quick Reservation</h2>
+
+			<form id="addQuickRoomReservationForm">
+				<table align="center">
+
+					<tr>
+						<td>Check in:</td>
+						<td><input type="date" class="qrrDate" name="checkIn"
+							id="qrr-checkIn"></td>
+					</tr>
+					<tr>
+						<td>Check out:</td>
+						<td><input type="date" class="qrrDate" name="checkOut"
+							id="qrr-checkOut"></td>
+					</tr>
+
+					<tr>
+						<td>Discount:</td>
+						<td><input type="number" min="1" name="discount" id="qrr-discount"></td>
+					</tr>
+
+					<tr>
+						<td align="left">Special offers: &nbsp;</td>
+						<td>
+							<div class="select" id="qrr-specialOffers">
+								<div align="left">&nbsp;</div>
+							</div>
+						</td>
+					</tr>
+
+					<tr>
+						<td align="left">Rooms: &nbsp;</td>
+						<td>
+							<div class="select" id="qrr-rooms">
+								<div align="left">&nbsp;</div>
+							</div>
+						</td>
+					</tr>
+
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td align="right"><input class="formBtn" type="button"
+							id="addQuickRoomReservationBtn" value="Add new"> <input
+							class="formBtn" type="button" id="cancelQuickRoomReservationBtn"
+							name="cancelQuickRoomReservationBtn" value="Cancel"></td>
+					</tr>
+
+				</table>
+
+			</form>
+
+		</div>
+
+
+	</div>
+
+	<div id="editQuickRoomReservation" class="tabcontent">
+		<div class="container">
+			<h2 align=center style="color: black">Edit quick room
+				reservation</h2>
+
+			<form id="editQuickRoomReservationForm">
+				<input type="hidden" name="id" id="qrr-id-edit" readonly>
+				<table align="center">
+					<tr>
+						<td>Room number:</td>
+						<td><input type="text" name="roomNumber"
+							id="qrr-roomNumber-edit" readonly></td>
+					</tr>
+					<tr>
+						<td>Check in:</td>
+						<td><input type="date" class="qrrDate" name="checkIn"
+							id="qrr-checkIn-edit"></td>
+					</tr>
+					<tr>
+						<td>Check out:</td>
+						<td><input type="date" class="qrrDate" name="checkOut"
+							id="qrr-checkOut-edit"></td>
+					</tr>
+
+					<tr>
+						<td>Discount:</td>
+						<td><input type="number" min="1" name="discount" id="qrr-discount-edit"></td>
+					</tr>
+
+					<tr>
+						<td align="left">Special offers: &nbsp;</td>
+						<td>
+							<div class="select" id="qrr-specialOffers-edit">
+								<div align="left">&nbsp;</div>
+							</div>
+						</td>
+					</tr>
+
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td align="right"><input class="formBtn" type="button"
+							id="editQuickRoomReservationBtn" value="Save"> <input
+							class="formBtn" type="button"
+							id="cancelEditQuickRoomReservationBtn"
+							name="cancelEditQuickRoomReservationBtn" value="Cancel"></td>
+					</tr>
+
+				</table>
+			</form>
+
+		</div>
+	</div>
+
+	<div class="tabcontent adminProfile" id="myprofilediv"
+		style="display: none;"></div>
+
+	<div id="changepswdiv" class="tabcontent adminProfile"
+		style="display: none;">
+		<div align="center" style="padding-top: 10%;">
+			<h2>Change password</h2>
+			<form action="" id="changepswform">
+				<input name="oldPassword" type="password" id="oldpsw"
+					placeholder="Old password*" required
+					oninvalid="this.setCustomValidity('Please enter old password.')"
+					oninput="setCustomValidity('')"> <br> <input
+					type="password" name="newPassword" id="newpsw"
+					placeholder="New password*" required
+					oninvalid="this.setCustomValidity('Please enter new password.')"
+					oninput="setCustomValidity('')"> <br> <input
+					type="checkbox" id="checkbox" onclick="showPswchangeFunction()">
+				<label for="checkbox">Show passwords</label> <br> <input
+					type="submit" id="submitchangepsw" value="Change">
+			</form>
+		</div>
+	</div>
+	
+	<div id="myReports" class="tabcontent" align="center">
+		<div class="container">
+			<h2 style="color:black;">Choose dates:</h2>
+			
+			<form id="reportDatesForm">
+				<table>
+					<tr>
+						<td>Start date:</td>
+						<td><input type="date" name="start"></td>
+					</tr>
+					<tr>
+						<td>End date:</td>
+						<td><input type="date" name="end"></td>
+					</tr>
+					<tr>
+						<td> </td>
+						<td><input type="submit"></td>
+					</tr>
+				</table>
+			</form>
+			<br>
+			<h2 align="center" id="totalIncomeH2" style="color:black;">Total income: </h2>
+			<h2 align="center" id="avgRateH2" style="color:black;">Average company rate: </h2>
+		</div>
+	</div>
+
+</body>
+</html>

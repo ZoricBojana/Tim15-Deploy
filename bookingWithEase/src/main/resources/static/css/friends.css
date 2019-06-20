@@ -1,0 +1,26 @@
+.friendsDiv
+{
+  position: absolute;
+  top: 30%;
+  right: 2%;
+  bottom: 2%;
+  left: 30%;
+  color: white;
+  font-size: 20px;
+}
+
+#friendTable td
+{
+  border: 1px solid;
+}
+
+#friendTable
+{
+  border: 1px solid;
+  color: white;
+}
+
+input[type="checkbox"] 
+{ 
+  display: table-cell;
+}

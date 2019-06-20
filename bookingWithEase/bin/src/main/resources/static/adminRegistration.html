@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<link rel="stylesheet" href="css/index.css" />
+		
+		<script type="text/javascript" src="lib/jQuery/jquery.min.js"></script>
+		<script type="text/javascript" src="lib/toastr/toastr.min.js"></script>	
+		
+		<script type="text/javascript" src="js/util.js"></script>
+		<script type="text/javascript" src="js/adminRegistration.js"></script>
+		
+		
+		<title>BookingWithEase</title>
+	</head>
+
+	<body>
+		<h1>Admin registration</h1>
+	</body>
+	
+	<div class="transbox">
+	<form id="adminRegForm">
+		<table align="center">
+			
+			<tr>
+				<td align="left">Type: </td>
+				<td align="left"><input type="radio" name="type" value="airline" id="radioAirline"> Airline admin</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td align="left" ><input type="radio" name="type" value="hotel" id="radioHotel"> Hotel admin </td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td align="left"><input type="radio" name="type" value="rent-a-car" id="radioRentacar"> Rent-a-car admin</td>
+			</tr>
+			<tr>
+				<td align="left"> Username: </td>
+				<td> <input type="text" name="username" required/> </td>
+			</tr>
+			
+			<tr> 
+				<td align="left"> First name: </td>
+				<td> <input type="text" name="firstName" required/> </td>
+			</tr>
+			<tr>
+				<td align="left"> Last name: </td>
+				<td> <input type="text" name="lastName" required/> </td>
+			</tr>	
+			<tr>
+				<td align="left"> Email: </td>
+				<td> <input type="text" name="email" required/> </td>
+			</tr>	
+			<tr>
+				<td align="left"> Password: </td>
+				<td> <input type="password" name="password" required/> </td>
+			</tr>	
+			<tr>
+				<td align="left"> Confirm password: </td>
+				<td> <input type="password" name="confirmPassword" required/> </td>
+			</tr>	
+		
+			<tr>
+				<td>&nbsp;</td>
+				<td align="right"> <input class="formBtn" type="submit" id="registerAdmin" value="Register">
+				 <input class="formBtn" type="button" id="cancelAdminReg" name="cancelAdmineg" value="Cancel"></td>
+			</tr>	
+			
+		
+		</table>
+	
+	</form>
+	</div>
+
+</html>

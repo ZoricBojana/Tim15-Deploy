@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link type="text/css" rel="stylesheet" href="css/homePageAir.css" />
+<link type="text/css" rel="stylesheet" href="css/navbar.css" />
+
+<script type="text/javascript" src="lib/jQuery/jquery.min.js"></script>
+<script type="text/javascript" src="lib/toastr/toastr.min.js"></script>
+<script type="text/javascript" src="js/util.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/auth.js"></script>
+<script type="text/javascript" src="js/users.js"></script>
+<script type="text/javascript" src="js/adminAirline.js"></script>
+<script type="text/javascript" src="lib/alertify/alertify.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+
+<link type="text/css" rel="stylesheet" href="lib/alertify/css/alertify.min.css">
+<link type="text/css" rel="stylesheet" href="lib/alertify/css/themes/semantic.min.css">
+<link rel="stylesheet" href="css/user.css" />
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  
+</head>
+
+<body onload="checkCompany()">
+
+	<nav>
+		<div class="brand">
+			<h2 id="pageTitle">Booking With Ease </h2> 
+		</div>
+		<ul id="nav_ul">
+			<li><a href="javascript:homepage()">Home</a></li>
+		    <li><a class="tablinks"
+				href="javascript:openCity(event, 'myprofilediv')">My Profile</a></li>
+		</ul>
+	</nav>
+
+	<div class="tab">
+		
+		<button class="tablinks" onclick="openCity(event, 'editAirline'); fillAirlineData();">Edit Airline Info</button>
+		<button class="tablinks" onclick="openCity(event, 'registerDest')">Add destination</button>
+		<button class="tablinks" onclick="openCity(event, 'allDest'); findDestination();">All destinations</button>
+		<button class="tablinks" onclick="openCity(event, 'addFlight'); findDestinationByFlightId()">Add flight</button>
+		<button class="tablinks" onclick="openCity(event, 'allF'); findFlights();">All flights</button>
+
+		<button class="tablinks" onclick="openCity(event, 'addQuickFlightReservation'); findFlightsSelect(false);">Add Quick Reservations</button>
+		<button class="tablinks" onclick="openCity(event, 'quickRes'); findQuickReservations();">All Quick Reservations</button>
+		
+		<button class="tablinks" onclick="openCity(event, 'seats'); findFlightsSelect(true);">Seats</button>
+		<button class="tablinks" onclick="openCity(event, 'reports'); reports();">Reports</button>
+
+		<button class="tablinks" onclick="openCity(event, 'eP')">Edit profile</button>
+
+	</div>
+	<div id="editAirline" class="tabcontent">
+		<div class="container">
+			<h1>Edit</h1>
+			<form id="editCompanyForm">
+				<table align="center">
+					<tr>
+						<td align="left">Name:</td>
+						<td><input type="text" id="companyName" name="name" required /></td>
+					</tr>
+					<tr>
+						<td align="left">Address:</td>
+						<td><input type="text" id="companyAddress" name="address" required /></td>
+					</tr>
+					<tr>
+						<td align="left">Latitude:</td>
+						<td><input type="number" step="any" name="latitude"
+							id="companyLatitude" /></td>
+					</tr>
+					<tr>
+						<td align="left">Longitude:</td>
+						<td><input type="number" step="any" name="longitude"
+							id="companyLongitude" /></td>
+					</tr>
+					<tr>
+						<td>Promotional description: &nbsp;</td>
+						<td align="left"><textarea cols="22" rows="5" id="companyDesc" name="description" required></textarea></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td align="right">
+							<input class="formBtn" type="submit" id="registerCompany" value="Submit">
+							<input class="formBtn" type="button" id="cancelCompReg" name="cancelCompReg" value="Cancel">
+						</td>
+					</tr>
+
+				</table>
+
+			</form>
+			<br>
+		</div>
+	</div>
+
+	<div id="addFlight" class="tabcontent">
+		<div class="container">
+			<h2>Adding Flight:</h2>
+			<form id="addFlightForm">
+				<table>
+					<tr>
+						<td>Flight number:</td>
+						<td><input type="text" name="number" required/></td>
+					</tr>
+					<tr>
+						<td>Start:</td>
+						<!-- <td><input type="text" name="startD" required /></td>-->
+						<td><select id="startDestinationDropdown" name="startDestinationId"></select></td>
+					</tr>
+					<tr>
+						<td>Final:</td>
+						<!-- <td><input type="text" name="finalD" required /></td>-->
+						<td><select id="endDestinationDropdown" name="endDestinationId"></select></td>
+					</tr>
+					<tr>
+						<td>Flight date:</td>
+						<td><input type="date" name="dateFligh" required /></td>
+					</tr>
+					<tr>
+						<td>Landing date:</td>
+						<td><input type="date" name="dateLand" required /></td>
+					</tr>
+					<tr>
+						<td>Travel length :</td>
+						<td><input type="number" name="lengthTravel" min="0" /></td>
+					</tr>
+					<tr>
+						<td>Flight duration:</td>
+						<td><input type="number" name="timeTravel" required/></td>
+					</tr>
+					<tr>
+						<td>Ticket price:</td>
+						<td><input type="number" name="priceTicket" min="1" /></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td><input type="submit" value="Add" /></td>
+					</tr>
+
+				</table>
+			</form>
+			<br>
+		</div>
+	</div>
+
+	<div id="allF" class="tabcontent">
+		<div class="container">
+			<h1>Flights</h1>
+			<form id="tab-flights">
+				<table border="1" id="tab-flights">
+					<tr>
+						<th>ID</th>
+						<th>Start destination</th>
+						<th>End destination</th>
+						<th>Flight date</th>
+						<th>Landing date</th>
+						<th>Length travel</th>
+						<th>Flight duration</th>
+						<th>Price ticket</th>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+
+	<div id="registerDest" class="tabcontent">
+		<div class="container">
+			<h1>Register destination</h1>
+			<form id="destRegForm">
+				<table align="center">
+					<tr>
+						<td align="left">Airport Name:</td>
+						<td><input type="text" name="name" required /></td>
+					</tr>
+
+					<tr>
+						<td align="left">Airport address:</td>
+						<td><input type="text" name="address" required /></td>
+					</tr>
+
+					<tr>
+						<td align="left"></td>
+						<td align="left"><input type="submit" value="Register"></td>
+					</tr>
+
+				</table>
+			</form>
+		</div>
+	</div>
+
+	<div id="allDest" class="tabcontent">
+		<div class="container">
+			<h1>Destination(Airport)</h1>
+			<form id="destinationTable">
+
+				<table id="destinationTable" border="1" align=center>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Address</th>
+
+					</tr>
+				</table>
+
+			</form>
+		</div>
+	</div>
+	
+	
+	<div id="quickRes" class="tabcontent">
+		<div class="container">
+			<h1>All Quick Flight Reservations</h1>
+			<table align="center" id="allQfrTable" class="airlinesTable"
+				border=1>
+			</table>
+		</div>
+	</div>
+	
+	<div id="addQuickFlightReservation" class="tabcontent">
+		<div class="container">
+			<h1 align=center style="color: black;">Add Quick Flight Reservation</h1>
+			<form id="addQuickFlightReservationForm">
+				<table align="center">
+					<tr>
+						<td>Flight:</td>
+						<td>
+							<select id="qfrAdd-flight-select"></select>
+						</td>
+					</tr>
+					<tr>
+						<td>Discount (%):</td>
+						<td><input type="text" name="discount" id="qfrAdd-discount"></td>
+					</tr>
+					<tr>
+						<td align="left">Seats: &nbsp;</td>
+						<td>
+							<div class="select" id="qfr-seats">
+								<div align="left">&nbsp;</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td align="right">
+							<input class="formBtn" type="button" id="addQuickFlightReservationBtn" value="Add new"> 
+							<input class="formBtn" type="button" id="cancelQuickFlightReservationBtn"
+							name="cancelQuickFlightReservationBtn" value="Cancel">
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+	
+	<div id="editQuickFlightReservation" class="tabcontent">
+		<div class="container">
+			<h1 align=center style="color: black">Edit quick flight reservation</h1>
+			<form id="editQuickFlightReservationForm">
+				<input type="hidden" name="id" id="qfr-id-edit" readonly>
+				<table align="center">
+					<tr>
+						<td>Seat id:</td>
+						<td><input type="text" name="seatId" id="qfr-seatId-edit" readonly></td>
+					</tr>
+					<tr>
+						<td>Discount:</td>
+						<td><input type="text" name="discount" id="qfr-discount-edit"></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td align="right">
+							<input class="formBtn" type="button" id="editQuickFlightReservationBtn" value="Save">
+							<input class="formBtn" type="button" id="cancelQuickFlightReservationBtn"
+									name="cancelEditQuickFlightReservationBtn" value="Cancel">
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>	
+	
+	
+	
+	<div id="seats" class="tabcontent" align="center">
+		<div class="container">
+			<div>
+				<select id="seat-flight-select"></select>
+				</br>
+				<select id="seatType-select">
+					<option value="ECONOMY">Economy</option>
+					<option value="BUSSINES">Bussines</option>
+					<option value="FIRST">First</option>
+				</select>
+				<button onclick="addSeat();">Add seat</button>
+			</div>
+			<div style="width: 47%;">
+				<table id="seatsTableLeft" border="1"></table>
+			</div>
+			
+			<div>
+				<div>
+					<select id="seatType-edit-select">
+						<option value="ECONOMY">Economy</option>
+						<option value="BUSSINES">Bussines</option>
+						<option value="FIRST">First</option>
+					</select>
+					<button onclick="editSeats();">Set type</button>
+					<button onclick="deleteSeats();">Delete seat</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="reports" class="tabcontent" align="center">
+		<div class="container">
+			<h2 align="center" id="average_airline_rate">Average airline rate: </h2><br>
+			
+			<h2>Average flights rate:</h2>
+			<table id="average_flight_rate_table" border="1" align=center>
+				<tr>
+					<th>Flight number</th>
+					<th>Average rate</th>
+				</tr>
+			</table><br>
+			
+			<h2>Total income:</h2>
+			<form id="reportDatesForm">
+				<table>
+					<tr>
+						<td>Start:</td>
+						<td><input type="date" name="start"></td>
+					</tr>
+					<tr>
+						<td>End:</td>
+						<td><input type="date" name="end"></td>
+					</tr>
+					<tr>
+						<td><input type="submit" value="Show"></td>
+						<td id="total_income_value"></td>
+					</tr>
+				</table>
+			</form>
+			<br>
+						
+			<select id="report-chart-select">
+				<option value="reportDay">Day</option>
+				<option value="reportWeek">Week</option>
+				<option value="reportMonth">Month</option>
+			</select>
+			<div id="show-year-div">
+				Year: <input id="year-chart-id" type="number" name="quantity" min="2010" max="2030">
+			</div>
+			<div id="show-month-div">
+				Month: <input id="month-chart-id" type="month" name="month" min="2010-01" max="2030-12">
+			</div>
+			<div id="myChart-div" class="container">
+    			<canvas id="myChart"></canvas>
+ 	 		</div>
+		</div>
+	</div>
+	
+	<div id="eP" class="tabcontent">
+		<div class="container">
+			<h2>Editing profile:</h2>
+			<form id="editProfileForm">
+				<table>
+
+					<tr>
+						<td>Username</td>
+						<td><input type="text" disabled/></td>
+					</tr>
+					<tr>
+						<td>New password:</td>
+						<td><input type="text" name="nPas" required/></td>
+					</tr>
+					<tr>
+						<td>Repeat new password:</td>
+						<td><input type="text" name="repP" required/></td>
+					</tr>
+					<tr>
+						<td>First name:</td>
+						<td><input type="text" name="fName" required/></td>
+					</tr>
+					<tr>
+						<td>Last name:</td>
+						<td><input type="text" name="lName" required/></td>
+					</tr>
+					<tr>
+						<td>Email:</td>
+						<td><input type="email" name="email" required/></td>
+					</tr>
+					<tr>
+						<td>Phone number:</td>
+						<td><input type="text" name="phone" required/></td>
+					</tr>
+					
+
+					<tr>
+						<td></td>
+						<td><input type="submit" value="Submit" /></td>
+					</tr>
+
+				</table>
+			</form>
+			<br>
+		</div>
+	</div>	
+	
+	<div class="tabcontent adminProfile" id="myprofilediv" style="display: none;"></div>
+
+	<div id="changepswdiv" class="tabcontent adminProfile" style="display: none;">
+		<div align="center" style="padding-top:10%;">
+			<h2>Change password</h2>
+			<form action="" id="changepswform">
+				<input name="oldPassword" type="password" id="oldpsw"
+					placeholder="Old password*" required
+					oninvalid="this.setCustomValidity('Please enter old password.')"
+					oninput="setCustomValidity('')">
+					<br> 
+				<input
+					type="password" name="newPassword" id="newpsw"
+					placeholder="New password*" required
+					oninvalid="this.setCustomValidity('Please enter new password.')"
+					oninput="setCustomValidity('')">
+					 <br> 
+				<input type="checkbox" id="checkbox"
+						onclick="showPswchangeFunction()">
+				<label for="checkbox">Show passwords</label>
+				<br>
+				<input type="submit" id="submitchangepsw" value="Change">
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>

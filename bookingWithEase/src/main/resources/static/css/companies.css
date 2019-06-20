@@ -1,0 +1,411 @@
+.search-div {
+	position: absolute;
+	top: 30%;
+	right: 71%;
+	bottom: 34%;
+	left: 2%;
+	background-color: black;
+	color: white;
+	font-size: 20px;
+	opacity: 0.95;
+}
+
+img.star {
+	position: absolute;
+}
+
+.guest_ratings {
+	position: absolute;
+	top: 15%;
+	left: 80%;
+	font-size: 18px;
+}
+
+.companies-div {
+	position: absolute;
+	top: 30%;
+	right: 2%;
+	bottom: 2%;
+	left: 30%;
+	background-color: black;
+	overflow-y: scroll;
+	color: white;
+	font-size: 20px;
+	opacity: 0.95;
+}
+
+img.show_on_map {
+	position: absolute;
+	top: 52%;
+	left: 22%;
+}
+
+div.show_on_map {
+	position: absolute;
+	top: 54%;
+	left: 24%;
+	font-size: 15px;
+	color: #42bcf4;
+}
+
+div img {
+	position: absolute;
+	top: 3%;
+	left: 2%;
+}
+
+div h3 {
+	position: absolute;
+	top: -3%;
+	left: 22%;
+}
+
+div p {
+	position: absolute;
+	top: 23%;
+	left: 22%
+}
+
+.company-div {
+	position: absolute;
+	top: 3%;
+	left: 3%;
+	bottom: 60%;
+	right: 3%;
+	border-bottom: solid gray 1px;
+}
+
+.totalPrice {
+	position: absolute;
+	top: 20%;
+	left: 86%;
+	font-size: 37px;
+	color: yellow;
+}
+
+.oldPrice {
+	position: absolute;
+	top: -14%;
+	left: 86%;
+	font-size: 30px;
+	color: #ffff80;
+	text-decoration: line-through red;
+}
+
+.discount {
+	position: absolute;
+	top: 2%;
+	left: 86%;
+	font-size: 32px;
+	color: red;
+}
+
+#p_price {
+	position: absolute;
+	top: 70%;
+	left: 70%;
+}
+
+/****************************** Buttons ***********************************/
+.show_details_btn {
+	position: absolute;
+	top: 77%;
+	left: 84%;
+}
+
+.sd_qrr {
+	left: 69%;
+}
+
+.show_details_btn {
+	background: #339DFF;
+	color: #fff;
+	text-decoration: none;
+	font-size: 13px;
+	border-radius: 50px;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+	width: 13%;
+	height: 21%;
+	text-align: center;
+}
+
+#show_details_btn:hover {
+	background: #fff;
+	color: #339DFF;
+	box-shadow: 0 4px 4px rgba(83, 100, 255, 0.32);
+}
+
+.black_btn {
+	background-color: black;
+	color: white;
+	border: 2px solid #555555;
+	padding: 10px 30px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+	cursor: pointer;
+}
+
+.black_btn:hover {
+	background-color: white !important;
+	color: black;
+}
+
+#info_black_btn, #info_veh_btn {
+	position: absolute;
+	top: 22%;
+	left: 30%;
+}
+
+#rooms_black_btn, #all_vehs_btn {
+	position: absolute;
+	top: 22%;
+	left: 37%;
+}
+
+#qrr_black_btn, #qvr_btn {
+	position: absolute;
+	top: 22%;
+	left: 48%;
+}
+
+/************ slideshow *****************/
+
+/* Slideshow container */
+.slideshow-container {
+	box-sizing: border-box;
+	position: absolute;
+	top: 75%;
+	bottom: 5%;
+	left: 45%;
+	right: 20%;
+}
+
+/* Hide the images by default */
+.mySlides {
+	display: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border: solid 1px white;
+}
+
+.mySlides p {
+	position: absolute;
+	font-size: 16px;
+	left: 15%;
+	top: -20%;
+	/*border: solid 1px white;*/
+}
+
+/* Next & previous buttons */
+.prev, .next {
+	cursor: pointer;
+	position: absolute;
+	top: 45%;
+	width: auto;
+	margin-top: -22px;
+	padding: 16px;
+	color: white;
+	font-size: 18px;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
+	user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+	right: 0;
+	border-radius: 1px 0 0 1px;
+}
+
+/* Caption text */
+.text {
+	color: #f2f2f2;
+	font-size: 15px;
+	padding: 8px 12px;
+	position: absolute;
+	bottom: 8px;
+	width: 100%;
+	text-align: center;
+}
+
+.active, .dot:hover {
+	background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+	-webkit-animation-name: fade;
+	-webkit-animation-duration: 1.5s;
+	animation-name: fade;
+	animation-duration: 1.5s;
+}
+
+@
+-webkit-keyframes fade {
+	from {opacity: .4
+}
+
+to {
+	opacity: 1
+}
+
+}
+@
+keyframes fade {
+	from {opacity: .4
+}
+
+to {
+	opacity: 1
+}
+
+}
+
+/******************** POPUP FORM ********************************/
+
+/* The popup form - hidden by default */
+.form-popup {
+	display: none;
+	position: absolute;
+	top: 10%;
+	left: 25%;
+	right: 25%;
+	bottom: 10%;
+	z-index: 9;
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Add styles to the form container */
+.form-container {
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+	background-color: gray;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+	width: 100%;
+	padding: 15px;
+	margin: 5px 0 22px 0;
+	border: none;
+	background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus
+	{
+	background-color: #ddd;
+	outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+	background-color: #4CAF50;
+	color: white;
+	padding: 16px 20px;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	margin-bottom: 10px;
+	opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+	background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+	opacity: 1;
+}
+
+.close {
+	top: 90%;
+	left: 70%;
+}
+
+.confirm {
+	top: 90%;
+	left: 55%;
+}
+
+.popup_btn {
+	position: absolute;
+	background: #339DFF;
+	color: #fff;
+	text-decoration: none;
+	font-size: 13px;
+	border-radius: 50px;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+	width: 13%;
+	height: 6%;
+	text-align: center;
+}
+
+/*************** checkbox *****************/
+input[type="checkbox"] {
+	display: none;
+}
+
+input[type="checkbox"]+label {
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 20px;
+	font: 20px/20px 'Open Sans', Arial, sans-serif;
+	color: #ddd;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
+input[type="checkbox"]+label:last-child {
+	margin-bottom: 0;
+}
+
+input[type="checkbox"]+label:before {
+	content: '';
+	display: block;
+	width: 20px;
+	height: 20px;
+	border: 2px solid #6cc0e5;
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: .6;
+	-webkit-transition: all .12s, border-color .08s;
+	transition: all .12s, border-color .08s;
+}
+
+input[type="checkbox"]:checked+label:before {
+	width: 10px;
+	top: -5px;
+	left: 5px;
+	border-radius: 0;
+	opacity: 1;
+	border-top-color: transparent;
+	border-left-color: transparent;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+#check_container {
+	position: absolute;
+	left: 40;
+	top: 25%;
+	right: 40%;
+	bottom: 20%;
+	/*overflow-y: scroll;*/
+}

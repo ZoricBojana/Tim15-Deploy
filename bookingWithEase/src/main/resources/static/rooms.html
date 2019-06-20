@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript" src="lib/jQuery/jquery.min.js"></script>
+<script type="text/javascript" src="lib/toastr/toastr.min.js"></script>
+<script type="text/javascript" src="lib/alertify/alertify.min.js"></script>
+
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/util.js"></script>
+<script type="text/javascript" src="js/auth.js"></script>
+<script type="text/javascript" src="js/showRooms.js"></script>
+<script type="text/javascript" src="js/hotelAdmin.js"></script>
+<script type="text/javascript" src="js/rooms.js"></script>
+
+<link rel="stylesheet" href="css/index.css" />
+<link rel="stylesheet" href="css/navbar.css" />
+<link rel="stylesheet" href="css/companies.css" />
+<link type="text/css" rel="stylesheet"
+	href="lib/alertify/css/alertify.min.css">
+<link type="text/css" rel="stylesheet"
+	href="lib/alertify/css/themes/semantic.min.css">
+
+<title>Booking With Ease</title>
+
+</head>
+
+<body>
+	<nav>
+		<div class="brand">
+			<h2>Booking With Ease</h2>
+		</div>
+		<ul id="nav_ul">
+			<li><a href="javascript:homepage()">Home</a></li>
+		</ul>
+	</nav>
+
+	<h1 id="hotel_name_h">Rooms</h1>
+
+	<div class="search-div" style="bottom: 24%">
+		<h2 align="center">Search</h2>
+		<form id="room_search_form">
+			<table align="center">
+				<tr>
+					<td>Floor:</td>
+					<td><input name="floorNumber" id="src-hotel-floor" type="text"></td>
+				</tr>
+				<tr>
+					<td>Capacity:</td>
+					<td><input name="capacity" id="src-hotel-capacity" type="text"></td>
+				</tr>
+				<tr>
+					<td>Min price:</td>
+					<td><input name="minPrice" id="src-hotel-min" type="text"></td>
+				</tr>
+				<tr>
+					<td>Max price:</td>
+					<td><input name="maxPrice" id="src-hotel-max" type="text"></td>
+				</tr>
+				<tr>
+					<td>Check in:</td>
+					<td><input type="date" name="checkIn" id="src-hotel-checkIn"></td>
+				</tr>
+				<tr>
+					<td>Check out:</td>
+					<td><input type="date" name="checkOut" id="src-hotel-checkOut"></td>
+				</tr>
+				<tr><td>&nbsp;</td></tr>
+				<tr>
+			
+					<td><input id="room_search_btn" type="button" value="Search rooms"></td>
+					<td><input id="qrr_search_btn" type="button" value="Search quick reservations"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	
+	<button class="black_btn" id="info_black_btn">Info</button>
+	<button class="black_btn" id="rooms_black_btn">All Rooms</button>
+	<button class="black_btn" id="qrr_black_btn">All Quick Reservations</button>
+	
+	<div class="companies-div" id="vehsDiv"></div>
+
+	<div class="form-popup" id="myForm">
+		<form class="form-container" id="form_container">
+			<h1 style="font-size:30px">Choose special offers</h1>
+			<div id="check_container"></div>
+			<p id="p_price" class="totalPrice"></p>
+			<button type="button" class="popup_btn confirm" id="so_confirm_btn">Choose</button>
+			<button type="button" class="popup_btn close" onclick="closeForm()">Cancel</button>
+			
+		</form>
+	</div>
+
+
+</body>
+
+</html>

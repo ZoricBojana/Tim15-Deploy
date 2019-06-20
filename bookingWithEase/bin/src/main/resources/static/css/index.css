@@ -1,0 +1,73 @@
+body {
+	background-image: url(../images/5.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+h1{
+	color: orange;
+	text-align: center;
+}
+
+table{
+	align: center;
+}
+
+div.transbox {
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 5%;
+  background-color: white;
+  border: 1px solid black;
+  opacity: 0.6;
+  filter: alpha(opacity=40); /* For IE8 and earlier */
+  text-align: center;
+  font-size: 22px;
+}
+
+.transbox2 {
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 5%;
+  background-color: white;
+  border: 1px solid black;
+  opacity: 0.6;
+  filter: alpha(opacity=40); /* For IE8 and earlier */
+  text-align: center;
+  font-size: 22px;
+}
+
+.transbox3 {
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-top: 1%;
+  background-color: white;
+  border: 1px solid black;
+  opacity: 0.6;
+  filter: alpha(opacity=40); /* For IE8 and earlier */
+  text-align: center;
+  font-size: 22px;
+}
+
+td{
+	align: "left";
+}
+
+.formBtn{
+	font-size: 20px;
+}
+
+
+.left {
+  margin: 2px;
+/*  border-right: solid 1px; */
+  float: left;
+  width: 25%;
+}
+
+.center{
+ margin-left: 25%;
+ width: 75%;
+}
+

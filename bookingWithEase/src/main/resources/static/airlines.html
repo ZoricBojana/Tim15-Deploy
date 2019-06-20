@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript" src="lib/jQuery/jquery.min.js"></script>
+<script type="text/javascript" src="lib/toastr/toastr.min.js"></script>
+<script src="https://api-maps.yandex.ru/2.1/?lang=en_US"
+	type="text/javascript"></script>
+	
+<script type="text/javascript" src="js/auth.js"></script>
+<script type="text/javascript" src="js/util.js"></script>
+<script type="text/javascript" src="js/maps.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/airlines.js"></script>
+<link rel="stylesheet" href="css/navbar.css" />
+<link rel="stylesheet" href="css/companies.css" />
+<link rel="stylesheet" href="css/index.css" />
+<link rel="stylesheet" href="css/airlines.css" />
+<title>Airlines</title>
+<body data-gr-c-s-loaded="true">
+	<div class="divOpacity">
+		<nav>
+			<div class="brand">
+				<h2>Booking With Ease</h2>
+			</div>
+			<ul id="nav_ul">
+				<li><a href="javascript:homepage()">Home</a></li>
+			</ul>
+		</nav>
+		<h1>AIRLINES</h1>
+	</div>
+	<div id="map"
+		style="width: 600px; height: 400px; display: none; position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%);">
+	</div>
+	<div class="divOpacity">
+		<div class="search-div">
+			<h2 align="center">Search</h2>
+			<form id="formsrc">
+				<table align="center">
+					<tr>
+						<td><input type="hidden" name="id" id="src-rac-id"></td>
+					</tr>
+					<tr>
+						<td>Name:</td>
+						<td><input type="text" name="name" id="src-rac-name"></td>
+					</tr>
+					<tr>
+						<td>Address:</td>
+						<td><input type="text" name="address" id="src-rac-addr"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input type="submit" value="Search"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><button onclick="showAllFlights();">Show all
+								flights</button></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+
+		<div class="airsDiv" id="airsDiv"></div>
+	</div>
+</body>
+
+</html>

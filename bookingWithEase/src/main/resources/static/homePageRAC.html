@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Rent-a-car service</title>
+<link type="text/css" rel="stylesheet" href="css/table.css">
+<link type="text/css" rel="stylesheet" href="css/homePageRAC.css">
+<link type="text/css" rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="css/user.css" />
+
+<script type="text/javascript" src="lib/jQuery/jquery.min.js"></script>
+<script type="text/javascript" src="lib/toastr/toastr.min.js"></script>
+<script type="text/javascript" src="lib/alertify/alertify.min.js"></script>
+<link type="text/css" rel="stylesheet"
+	href="lib/alertify/css/alertify.min.css">
+<link type="text/css" rel="stylesheet"
+	href="lib/alertify/css/themes/semantic.min.css">
+<script type="text/javascript" src="js/util.js"></script>
+<script type="text/javascript" src="js/users.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/auth.js"></script>
+<script type="text/javascript" src="js/homePageRac.js"></script>
+</head>
+<body onload="checkCompany()">
+
+	<nav>
+		<div class="brand">
+			<h2>Booking With Ease</h2>
+		</div>
+		<ul id="nav_ul">
+			<li><a href="javascript:homepage()">Home</a></li>
+			<li><a class="tablinks"
+				href="javascript:openCity(event, 'myprofilediv')">My Profile</a></li>
+		</ul>
+	</nav>
+	<div class="tab">
+		<button class="tablinks" onclick="openCity(event, 'racInfo')">Rent-a-car
+			info</button>
+		<button class="tablinks" onclick="openCity(event, 'editRacInfo')">Edit
+			rent-a-car info</button>
+		<button class="tablinks" id="mybranchsbtn"
+            
+			onclick="openDiv(event, 'allBranchesDiv')">My branches</button>
+
+		<button class="tablinks" onclick="openDiv(event, 'addBranchDiv')">Add
+			branch</button>
+		<button class="tablinks" id="myvehiclesbtn"
+			onclick="openDiv(event, 'allVehiclesDiv')">My vehicles</button>
+		<button class="tablinks" onclick="openDiv(event, 'addVehicleDiv')">Add
+			vehicle</button>
+		<button class="tablinks" id="myoffersbtn"
+			onclick="openDiv(event, 'allOffersDiv')">My offers</button>
+		<button class="tablinks" onclick="openDiv(event, 'addOfferDiv')">Add
+			offer</button>
+
+		<button class="tablinks" id="myquickreservations"
+			onclick="openDiv(event, 'allQuickReservationsDiv')">Quick
+			reservations</button>
+		<button class="tablinks" id="openQvrBtn"
+			onclick="openCity(event, 'addQuickVehicleReservationDiv')">Add
+			Quick Reservation</button>
+		<button class="tablinks" id="openReportsBtn"
+			onclick="openCity(event, 'myReports')">My Reports</button>
+
+	</div>
+
+	<div id="maincontent" style="display: none;">
+		<h2 id="tableCap" align="center"></h2>
+		<div align="center" id="branchSearch"></div>
+		<table id="branchTable"
+			style="max-width: auto; max-height: auto; border-collapse: collapse; margin-bottom: 5%;">
+
+		</table>
+	</div>
+
+	<div id="racInfo" class="tabcontent">
+		<div class="container">
+			<h2 align=center style="color: black; font-size: 21px;">Rent-a-car
+				info</h2>
+			<table id="rac_info_table" align="center" style="font-size: 19px;">
+				<tr style="border-bottom: 1px solid black">
+					<td align="left">Name:</td>
+					<td><p id="rac_name"></p></td>
+				</tr>
+
+				<tr style="border-bottom: 1px solid black">
+					<td align="left">Address:</td>
+					<td><p id="rac_address"></p></td>
+				</tr>
+				<tr style="border-bottom: 1px solid black">
+					<td align="left">Latitude:</td>
+					<td><p id="rac_latitude"></p></td>
+				</tr>
+				<tr style="border-bottom: 1px solid black">
+					<td align="left">Longitude:</td>
+					<td><p id="rac_longitude"></p></td>
+				</tr>
+				<tr style="border-bottom: 1px solid black">
+					<td>Description: &nbsp;</td>
+					<td align="left"><p id="rac_description">&nbsp;</p></td>
+				</tr>
+				<tr>
+					<td align="left">Rating:</td>
+					<td><p id="rac_rating"></p></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<div id="editRacInfo" class="tabcontent">
+		<div class="container">
+			<h2 align=center style="color: black;">Edit rent-a-car info</h2>
+			<form id="edit_rac_form">
+				<input type="hidden" name="id" id="edit_rac_id">
+				<table align="center">
+
+					<tr>
+						<td align="left">Name:</td>
+						<td><input type="text" name="name" id="edit_rac_name"
+							required /></td>
+					</tr>
+
+					<tr>
+						<td align="left">Address:</td>
+						<td><input type="text" name="address" id="edit_rac_address"
+							required /></td>
+					</tr>
+					<tr>
+						<td align="left">Latitude:</td>
+						<td><input type="number" step="any" name="latitude"
+							id="edit_rac_latitude" /></td>
+					</tr>
+					<tr>
+						<td align="left">Longitude:</td>
+						<td><input type="number" step="any" name="longitude"
+							id="edit_rac_longitude" /></td>
+					</tr>
+					<tr>
+						<td>Description: &nbsp;</td>
+						<td align="left"><textarea cols="22" rows="5"
+								name="description" id="edit_rac_description"></textarea></td>
+					</tr>
+
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td align="right"><input class="formBtn" type="submit"
+							id="registerCompany" value="Submit"> <input
+							class="formBtn" type="button" id="cancelCompReg"
+							name="cancelCompReg" value="Cancel"></td>
+					</tr>
+
+				</table>
+
+			</form>
+			<br>
+		</div>
+	</div>
+
+	<div id="addBranchDiv" class="tabcontent" align="center">
+		<div class="container">
+			<h2>Adding Branch:</h2>
+			<form id="addBranchForm">
+				<table>
+					<tr>
+						<td align="left">Name:</td>
+						<td align="left"><input type="text" name="name" required></td>
+					</tr>
+					<tr>
+						<td align="left">Address:</td>
+						<td><input type="text" name="address"></td>
+					</tr>
+					<tr>
+						<td align="left"></td>
+						<td align="left"><input type="submit" value="Add"></td>
+					</tr>
+				</table>
+
+			</form>
+			<br>
+		</div>
+	</div>
+
+	<div id="editBranchDiv" class="tabcontent">
+		<div class="container">
+			<h2>Editing Branch:</h2>
+			<form id="editBranchForm">
+				<input id="editIdBr" type="hidden" name="id">
+				<table style="align: center">
+					<tr>
+						<td align="left">Name:</td>
+						<td align="left"><input id="editNameBr" type="text"
+							name="name" required></td>
+					</tr>
+					<tr>
+						<td align="left">Address:</td>
+						<td><input id="editAddrBr" type="text" name="address"></td>
+					</tr>
+					<tr>
+						<td align="left"></td>
+						<td align="left"><input type="submit" value="Edit"></td>
+					</tr>
+				</table>
+			</form>
+			<br>
+		</div>
+	</div>
+
+	<div id="addVehicleDiv" class="tabcontent" align="center">
+		<div class="container">
+			<h1>Adding Vehicle:</h1>
+			Branch: <select id="selectbranch" name="branchId">
+				<option></option>
+			</select>
+			<form id="addVehicleForm">
+				<table>
+
+					<tr>
+						<td align="left">Registration number:</td>
+						<td align="left"><input type="text" name="registrationNumber"
+							required></td>
+					</tr>
+					<tr>
+						<td align="left">Type:</td>
+						<td><input type="text" name="type"></td>
+					</tr>
+
+					<tr>
+						<td align="left">Gear:</td>
+						<td><select name="gear">
+								<option selected></option>
+								<option value="Manual">Manual</option>
+								<option value="Automatic">Automatic</option>
+						</select></td>
+					</tr>
+					<tr>
+						<td align="left">Color:</td>
+						<td align="left"><input type="text" name="color"></td>
+					</tr>
+					<tr>
+						<td align="left">Price per day:</td>
+						<td align="left"><input type="text" name="pricePerDay"></td>
+					</tr>
+					<tr>
+						<td align="left"></td>
+						<td align="left"><input type="submit" value="Add"></td>
+					</tr>
+				</table>
+
+			</form>
+		</div>
+	</div>
+
+	<div id="editVehicleDiv" class="tabcontent">
+		<div class="container">
+			<h2>Editing Vehicle:</h2>
+			<form id="editVehicleForm">
+				<input id="editIdVh" type="hidden" name="id">
+				<table style="align: center">
+					<tr>
+						<td align="left">Registration number:</td>
+						<td align="left"><input id="editRegVh" type="text"
+							name="name"></td>
+					</tr>
+					<tr>
+						<td align="left">Type:</td>
+						<td><input id="editTypeVh" type="text" name="type"></td>
+					</tr>
+					<tr>
+						<td align="left">Gear:</td>
+						<td><input id="editGearVh" type="text" name="gear"></td>
+					</tr>
+					<tr>
+						<td align="left">Color:</td>
+						<td><input id="editColorVh" type="text" name="color"></td>
+					</tr>
+					<tr>
+						<td align="left">Price per day:</td>
+						<td><input id="editPriceVh" type="text" name="pricePerDay"></td>
+					</tr>
+					<tr>
+						<td align="left"></td>
+						<td align="left"><input type="submit" value="Edit"></td>
+					</tr>
+				</table>
+			</form>
+			<br>
+		</div>
+	</div>
+
+	<div id="allOffersDiv" class="tabcontent">
+		<div class="container">
+			<h2 align=center style="color: black;">All special offers</h2>
+			<table align="center" id="specialOffersTable" class="racTable"
+				border=1
+				style="max-width: auto; max-height: auto; border-collapse: collapse; margin-bottom: 5%;">
+
+			</table>
+		</div>
+	</div>
+
+	<div id="editOfferDiv" class="tabcontent">
+		<div class="container">
+			<h2>Editing Offer:</h2>
+			<form id="editOfferForm">
+				<input id="editIdOf" type="hidden" name="id">
+				<table style="align: center">
+					<tr>
+						<td align="left">Name:</td>
+						<td align="left"><input id="editNameOf" type="text"
+							name="name" required></td>
+					</tr>
+					<tr>
+						<td align="left">Description:</td>
+						<td align="left"><textarea cols="22" rows="5"
+								name="description" id="editDescOf"></textarea></td>
+					</tr>
+					<tr>
+						<td align="left">Additional payment:</td>
+						<td><input type="text" name="price" id="editPriceOf" required /></td>
+					</tr>
+					<tr>
+						<td align="left"></td>
+						<td align="left"><input type="submit" value="Edit"></td>
+					</tr>
+				</table>
+			</form>
+			<br>
+		</div>
+	</div>
+
+	<div id="addOfferDiv" class="tabcontent">
+		<div class="container">
+			<h2 align=center style="color: black">Add special offer</h2>
+
+			<form id="addOfferForm">
+				<table align="center">
+					<tr>
+						<td align="left">Name:</td>
+						<td><input type="text" name="name" id="soracname" required /></td>
+					</tr>
+
+					<tr>
+						<td align="left">Description:</td>
+						<td align="left"><textarea cols="22" rows="5"
+								name="description" id="special_offer_description"></textarea></td>
+					</tr>
+					<tr>
+						<td align="left">Additional payment:</td>
+						<td><input type="text" name="price" id="inputPrice" required /></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td align="right"><input class="formBtn" type="submit"
+							id="addSpecialOfferBtn" value="Add new"> <input
+							class="formBtn" type="button" id="cancelSpecialOfferBtn"
+							name="cancelSpecialOffer" value="Cancel"></td>
+					</tr>
+
+				</table>
+
+			</form>
+
+		</div>
+	</div>
+
+
+	<div id="allBranchesDiv" class="tabcontent">
+		<div class="container">
+			<h2 align=center style="color: black;">All Branches</h2>
+			<table align="center" id="allBranchesTable" class="racTable" border=1
+				style="max-width: auto; max-height: auto; border-collapse: collapse; margin-bottom: 5%;">
+
+			</table>
+		</div>
+	</div>
+
+	<div id="allVehiclesDiv" class="tabcontent">
+		<div class="container">
+			<h2 align=center style="color: black;">All Vehicles</h2>
+			<table align="center" id="allVehiclesTable" class="racTable" border=1
+				style="max-width: auto; max-height: auto; border-collapse: collapse; margin-bottom: 5%;">
+
+			</table>
+		</div>
+	</div>
+
+	<div id="allQuickReservationsDiv" class="tabcontent">
+		<div class="container">
+			<h2 align=center style="color: black;">All quick reservations</h2>
+			<table align="center" id="quickReservationsTable" class="racTable"
+				border=1>
+
+			</table>
+		</div>
+	</div>
+
+	<div id="addQuickVehicleReservationDiv" class="tabcontent">
+		<div class="container">
+			<h2 align=center style="color: black;">Add Quick Reservation</h2>
+
+			<form id="addQuickVehicleReservationForm">
+				<table align="center">
+
+					<tr>
+						<td>Pick up:</td>
+						<td><input type="date" class="qvrDate" name="checkIn"
+							id="qvr_checkIn"></td>
+					</tr>
+					<tr>
+						<td>Drop off:</td>
+						<td><input type="date" class="qvrDate" name="checkOut"
+							id="qvr_checkOut"></td>
+					</tr>
+
+					<tr>
+						<td>Discount:</td>
+						<td><input type="text" name="discount" id="qvr_discount"></td>
+					</tr>
+
+					<tr>
+						<td align="left">Vehicles: &nbsp;</td>
+						<td>
+							<div class="select" id="qvr_vehicles">
+								<div align="left">&nbsp;</div>
+							</div>
+						</td>
+					</tr>
+
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td align="right"><input class="formBtn" type="button"
+							id="addQuickVehicleReservationBtn" value="Add new"> <input
+							class="formBtn" type="button"
+							id="cancelQuickVehicleReservationBtn"
+							name="cancelQuickVehicleReservationBtn" value="Cancel"></td>
+					</tr>
+
+				</table>
+
+			</form>
+
+		</div>
+
+
+	</div>
+
+	<div class="tabcontent adminProfile" id="myprofilediv"
+		style="display: none;"></div>
+
+	<div id="changepswdiv" class="tabcontent adminProfile"
+		style="display: none;">
+		<div align="center" style="padding-top: 10%;">
+			<h2>Change password</h2>
+			<form action="" id="changepswform">
+				<input name="oldPassword" type="password" id="oldpsw"
+					placeholder="Old password*" required
+					oninvalid="this.setCustomValidity('Please enter old password.')"
+					oninput="setCustomValidity('')"> <br> <input
+					type="password" name="newPassword" id="newpsw"
+					placeholder="New password*" required
+					oninvalid="this.setCustomValidity('Please enter new password.')"
+					oninput="setCustomValidity('')"> <br> <input
+					type="checkbox" id="checkbox" onclick="showPswchangeFunction()">
+				<label for="checkbox">Show passwords</label> <br> <input
+					type="submit" id="submitchangepsw" value="Change">
+			</form>
+		</div>
+	</div>
+
+
+	<div id="myReports" class="tabcontent" align="center">
+		<div class="container">
+			<h2>Choose dates:</h2>
+			<form id="reportDatesForm">
+				<table>
+					<tr>
+						<td>Start:</td>
+						<td><input type="date" name="start"></td>
+					</tr>
+					<tr>
+						<td>End:</td>
+						<td><input type="date" name="end"></td>
+					</tr>
+					<tr>
+						<td> </td>
+						<td><input type="submit"></td>
+					</tr>
+				</table>
+			</form>
+			<br>
+			<h2 align="center" id="totalIncomeH2">Total income: </h2>
+			<h2 align="center" id="avgRateH2">Average company rate: </h2>
+		</div>
+	</div>
+
+</body>
+</html>

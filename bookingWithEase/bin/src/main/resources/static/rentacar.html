@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript" src="lib/jQuery/jquery.min.js"></script>
+<script type="text/javascript" src="lib/toastr/toastr.min.js"></script>
+
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/util.js"></script>
+<script type="text/javascript" src="js/rentacar.js"></script>
+
+<link rel="stylesheet" href="css/index.css" />
+<title>Rent-a-car</title>
+</head>
+
+<body>
+	<h1>Rent-a-car</h1>
+	<div class="transbox">
+		<div id="div-show-search">
+			<button type="button" onclick="showHideSearch()" id="showHideBtn">Show
+				search</button>
+		</div>
+		<div id="div-rac-search" style="display: none">
+			<form id="form-src">
+				<table>
+					<tr>
+						<td>Id:</td>
+						<td><input type="text" name="id" id="src-rac-id"></td>
+					</tr>
+					<tr>
+						<td>Name:</td>
+						<td><input type="text" name="name" id="src-rac-name"></td>
+					</tr>
+					<tr>
+						<td>Address:</td>
+						<td><input type="text" name="address" id="src-rac-addr"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input type="submit" value="Search"></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+
+		<table id="tab-rac" border="1"></table>
+	</div>
+</body>
+
+</html>

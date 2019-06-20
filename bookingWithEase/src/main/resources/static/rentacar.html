@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript" src="lib/jQuery/jquery.min.js"></script>
+<script type="text/javascript" src="lib/toastr/toastr.min.js"></script>
+<script type="text/javascript" src="lib/alertify/alertify.min.js"></script>
+<script src="https://api-maps.yandex.ru/2.1/?lang=en_US"
+	type="text/javascript"></script>
+
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/util.js"></script>
+<script type="text/javascript" src="js/auth.js"></script>
+<script type="text/javascript" src="js/maps.js"></script>
+<script type="text/javascript" src="js/rentacar.js"></script>
+<link type="text/css" rel="stylesheet"
+	href="lib/alertify/css/alertify.min.css">
+<link type="text/css" rel="stylesheet"
+	href="lib/alertify/css/themes/semantic.min.css">
+
+<link rel="stylesheet" href="css/index.css" />
+<link rel="stylesheet" href="css/navbar.css" />
+<link rel="stylesheet" href="css/companies.css" />
+<title>Rent-a-car</title>
+</head>
+
+<body>
+	<div class="divOpacity">
+		<nav>
+			<div class="brand">
+				<h2>Booking With Ease</h2>
+			</div>
+			<ul id="nav_ul">
+				<li><a href="javascript:homepage()">Home</a></li>
+
+			</ul>
+		</nav>
+
+		<h1>RENT-A-CAR</h1>
+	</div>
+	<div id="map"
+		style="width: 600px; height: 400px; display: none; position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%);">
+	</div>
+	<div class="divOpacity">
+		<div class="search-div">
+			<h2 align="center">Search</h2>
+			<form id="formsrc">
+				<table align="center">
+					<tr>
+						<td>Name:</td>
+						<td><input type="text" name="name" id="srcRacName"></td>
+					</tr>
+					<tr>
+						<td>Address:</td>
+						<td><input type="text" name="address" id="srcRacAddr"></td>
+					</tr>
+					<tr>
+						<td>Pick up:</td>
+						<td><input type="date" name="pickUp" id="srcRacPickUp"
+							required></td>
+					</tr>
+					<tr>
+						<td>Drop off:</td>
+						<td><input type="date" name="dropOff" id="srcRacDropOff"
+							required></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input type="submit" value="Search"></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+
+
+		<div class="companies-div" id="racsDiv"></div>
+	</div>
+</body>
+
+</html>

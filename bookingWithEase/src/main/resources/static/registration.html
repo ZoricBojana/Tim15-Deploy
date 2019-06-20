@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+
+<script type="text/javascript" src="lib/jQuery/jquery.min.js"></script>
+<script type="text/javascript" src="lib/toastr/toastr.min.js"></script>
+<script type="text/javascript" src="lib/alertify/alertify.min.js"></script>
+
+<script type="text/javascript" src="js/index.js"></script>
+<link rel="stylesheet" href="css/login.css" />
+<script type="text/javascript" src="js/auth.js"></script>
+<script type="text/javascript" src="js/util.js"></script>
+<script type="text/javascript" src="js/registration.js"></script>
+<script type="text/javascript" src="js/passwordchecker.js"></script>
+
+<link rel="stylesheet" href="css/index.css" />
+<link rel="stylesheet" href="css/navbar.css" />
+<link rel="stylesheet" href="css/user.css" />
+<link type="text/css" rel="stylesheet" href="lib/alertify/css/alertify.min.css">
+<link type="text/css" rel="stylesheet" href="lib/alertify/css/themes/semantic.min.css">
+<title>BookingWithEase</title>
+
+</head>
+
+<body>
+	<nav>
+		<div class="brand">
+			<h2>Booking With Ease</h2>
+		</div>
+		<ul id="nav_ul">
+			<li><a href="javascript:homepage()">Home</a></li>
+		</ul>
+	</nav>
+
+	<div id="transbox-registration" class="transbox-registration">
+		</br>
+		<h2>Registration</h2>
+		<form action="" id="registrationform">
+			<table align="center">
+			<tr>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td><input name="username" id="registrationusername"
+						placeholder="Username*" required
+						oninvalid="this.setCustomValidity('Please enter username.')"
+						oninput="setCustomValidity('')">
+					</td>
+				</tr>
+				<tr>
+					<td><input name="name" id="registrationname"
+						placeholder="Name*" required
+						oninvalid="this.setCustomValidity('Please enter your name.')"
+						oninput="setCustomValidity('')">
+					</td>
+				</tr>
+				<tr>
+					<td><input name="lastName" id="registrationlastname"
+						placeholder="Lastname*" required
+						oninvalid="this.setCustomValidity('Please enter your lastname.')"
+						oninput="setCustomValidity('')">
+					</td>
+				</tr>
+				<tr>
+					<td><input name="email" type="email" id="registrationemail"
+						placeholder="Email*" required
+						oninvalid="this.setCustomValidity('Please enter your email.')"
+						oninput="setCustomValidity('')">
+					</td>
+				</tr>
+				<tr>
+					<td><input name="city" id="registrationcity"
+						placeholder="City*" required
+						oninvalid="this.setCustomValidity('Please enter city.')"
+						oninput="setCustomValidity('')">
+					</td>
+				</tr>
+				<tr>
+					<td><input name="phoneNumber" id="registrationphonenumber"
+						placeholder="Phone number*" required
+						oninvalid="this.setCustomValidity('Please enter your phone number.')"
+						oninput="setCustomValidity('')">
+					</td>
+				</tr>
+				<tr>
+					<td><input name="password" type="password" id="registrationpassword"
+						placeholder="Password*" required
+						oninvalid="this.setCustomValidity('Please enter password.')"
+						oninput="setCustomValidity('')">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span id="result" class="short"> </span>
+					</td>
+				</tr>
+				<tr>
+					<td><input name="confPassword" type="password" id="registrationconfpassword"
+						placeholder="Confirmation Password*" required
+						oninvalid="this.setCustomValidity('Please enter password again.')"
+						oninput="setCustomValidity('')">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span id="match" class="notmatching"> </span>
+					</td>
+				</tr>
+				<tr>
+					<td align="left"><input type="checkbox"
+						onclick="showPswRegFunction()">Show Passwords</td>
+				</tr>
+				<tr>
+					<td align="right"><input type="button" id="cancel_registration"
+						value="Cancel">&nbsp;&nbsp;<input type="submit" id="registrationbtn"
+						value="Register"> </td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+
+</body>
+
+</html>

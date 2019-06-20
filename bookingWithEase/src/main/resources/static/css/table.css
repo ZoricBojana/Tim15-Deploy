@@ -1,0 +1,55 @@
+#branchTable table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#branchTable th, #branchTable td {
+	text-align: left;
+	padding: 8px;
+}
+
+#branchTable tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+#branchTable tr:hover {
+	background-color: #ddd;
+}
+
+#branchTable th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #4D4D4D;
+	color: white;
+}
+
+#usersTable table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#usersTable th, #usersTable td {
+	text-align: left;
+	padding: 8px;
+}
+
+#usersTable tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+#usersTable tr:nth-child(odd) {
+	background-color: white;
+}
+
+#usersTable tr:hover {
+	background-color: #ddd;
+}
+
+#usersTable th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #4D4D4D;
+	color: white;
+}

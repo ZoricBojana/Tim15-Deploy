@@ -1,0 +1,71 @@
+/************ Navbar **************/
+nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 8%;
+	background: rgba(0, 0, 0, 0.2);
+	padding: 0 6%;
+	box-sizing: border-box;
+}
+
+nav .brand {
+	float: left;
+	height: 100%;
+	line-height: 300%;
+}
+
+nav .brand h2 {
+	margin: 0;
+	padding: 0;
+	color: #fff;
+}
+
+nav ul {
+	float: right;
+	display: flex;
+	margin: 0;
+	padding: 0;
+}
+
+nav ul li {
+	list-style: none;
+}
+
+nav ul li a {
+	position: relative;
+	display: block;
+	height: 100%;
+	line-height: 300%;
+	padding: 0 20px;
+	box-sizing: border-box;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: .5s;
+}
+
+nav ul li a:hover {
+	background-color: #00CCFF;
+	color: white;
+}
+
+nav ul li a:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	/* z-index: -1; */
+	transform-origin: right;
+	transform: scaleX(0);
+	transition: transform .5s;
+}
+
+nav ul li a:hover:before {
+	transform-origin: right;
+	transform: scaleX(0);
+}

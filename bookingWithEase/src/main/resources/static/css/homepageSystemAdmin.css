@@ -1,0 +1,79 @@
+div.transbox_admin_reg {
+	position: absolute;
+	top: 16%;
+	left: 25%;
+	right: 25%;
+	bottom: 7%;
+	background-color: black;
+	color: white;
+	border: 1px solid black;
+	opacity: 0.9;
+	filter: alpha(opacity = 90); /* For IE8 and earlier */
+	text-align: center;
+	font-size: 22px;
+}
+
+div.transbox_company_reg {
+	position: absolute;
+	top: 16%;
+	left: 25%;
+	right: 25%;
+	bottom: 7%;
+	background-color: black;
+	color: white;
+	border: 1px solid black;
+	opacity: 0.9;
+	filter: alpha(opacity = 90); /* For IE8 and earlier */
+	text-align: center;
+	font-size: 22px;
+}
+
+div.transbox_discounts {
+	position: absolute;
+	top: 16%;
+	left: 25%;
+	right: 25%;
+	bottom: 7%;
+	background-color: black;
+	color: white;
+	border: 1px solid black;
+	opacity: 0.9;
+	filter: alpha(opacity = 90); /* For IE8 and earlier */
+	text-align: center;
+	font-size: 22px;
+}
+
+div.select_admins {
+	/*	position: absolute;
+	top: 66%;
+	left: 43%;
+	right: 30%;
+	bottom: 20%;*/
+	max-height: 70px;
+	background-color: white;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	color: black;
+	font-size: 15px;
+}
+
+div.select_company {
+	/*	position: absolute;
+	top: 66%;
+	left: 43%;
+	right: 30%;
+	bottom: 20%;*/
+	max-height: 70px;
+	max-width: 200px;
+	background-color: white;
+	overflow-y: scroll;
+	overflow-x: scroll;
+	color: black;
+	font-size: 15px;
+}
+
+h2.form-h {
+	font-size: 26px;
+}
+
+

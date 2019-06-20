@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="css/index.css" />
+
+<script type="text/javascript" src="lib/jQuery/jquery.min.js"></script>
+<script type="text/javascript" src="lib/toastr/toastr.min.js"></script>
+
+<script type="text/javascript" src="js/util.js"></script>
+<script type="text/javascript" src="js/addVehicle.js"></script>
+
+<title>BookingWithEase</title>
+</head>
+
+<body>
+	<h1>Add vehicle</h1>
+</body>
+
+<div class="transbox">
+	<form id="addVehicleForm">
+		<table style="align: center">
+			<tr>
+				<td align="left">Registration number:</td>
+				<td align="left"><input type="text" name="registrationNumber"></td>
+			</tr>
+			<tr>
+				<td align="left">Type:</td>
+				<td><input type="text" name="type"></td>
+			</tr>
+
+			<tr>
+				<td align="left">Gear:</td>
+				<td>
+					<select name="gear">
+						<option selected> </option>
+						<option value="Manual">Manual</option>
+						<option value="Automatic">Atomatic</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">Color:</td>
+				<td align="left"><input type="text" name="color"></td>
+			</tr>
+			<tr>
+				<td align="left"> </td>
+				<td align="left"><input type="submit" value="Add"></td>
+			</tr>
+		</table>
+
+	</form>
+</div>
+
+</html>
